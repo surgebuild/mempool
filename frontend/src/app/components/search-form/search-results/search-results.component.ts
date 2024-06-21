@@ -87,13 +87,11 @@ export class SearchResultsComponent implements OnChanges {
   }
 
   clickItem(id: number) {
-    debugger;
     this.selectedResult.emit(this.resultsFlattened[id]);
     this.results = null;
   }
 
   clickAddress(addressId: number) {
-    debugger;
     const addressOrId = this.resultsFlattened[addressId]; // Assuming this is the address or ID you want to navigate to
 
     this.router.navigateByUrl(`/address/${addressOrId}`); // Replace '/your-route/' with your actual route
