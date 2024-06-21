@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { StateService } from '../../../services/state.service';
 
 @Component({
@@ -10,7 +17,7 @@ export class SearchResultsComponent implements OnChanges {
   @Input() results: any = {};
   @Output() selectedResult = new EventEmitter();
 
-  isMobile = (window.innerWidth <= 1150);
+  isMobile = window.innerWidth <= 1150;
   resultsFlattened = [];
   activeIdx = 0;
   focusFirst = true;
@@ -18,16 +25,26 @@ export class SearchResultsComponent implements OnChanges {
 
   constructor(
     public stateService: StateService,
-    ) { }
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.networkName = this.stateService.network.charAt(0).toUpperCase() + this.stateService.network.slice(1);
+    this.networkName =
+      this.stateService.network.charAt(0).toUpperCase() +
+      this.stateService.network.slice(1);
   }
 
   ngOnChanges() {
     this.activeIdx = 0;
     if (this.results) {
-      this.resultsFlattened = [...(this.results.hashQuickMatch ? [this.results.searchText] : []), ...this.results.addresses, ...this.results.pools, ...this.results.nodes, ...this.results.channels, ...this.results.otherNetworks];
+      this.resultsFlattened = [
+        ...(this.results.hashQuickMatch ? [this.results.searchText] : []),
+        ...this.results.addresses,
+        ...this.results.pools,
+        ...this.results.nodes,
+        ...this.results.channels,
+        ...this.results.otherNetworks,
+      ];
       // If searchText is a public key corresponding to a node, select it by default
       if (this.results.publicKey && this.results.nodes.length > 0) {
         this.activeIdx = 1;
@@ -54,7 +71,9 @@ export class SearchResultsComponent implements OnChanges {
         break;
       case 'Enter':
         event.preventDefault();
-        if (this.resultsFlattened[this.activeIdx]?.isNetworkAvailable === false) {
+        if (
+          this.resultsFlattened[this.activeIdx]?.isNetworkAvailable === false
+        ) {
           return;
         }
         if (this.resultsFlattened[this.activeIdx]) {
@@ -72,9 +91,17 @@ export class SearchResultsComponent implements OnChanges {
     this.results = null;
   }
 
+  clickAddress(addressId: number) {
+    const addressOrId = this.resultsFlattened[addressId]; // Assuming this is the address or ID you want to navigate to
+
+    this.router.navigateByUrl(`/address/${addressOrId}`); // Replace '/your-route/' with your actual route
+  }
+
   next() {
     if (this.activeIdx === this.resultsFlattened.length - 1) {
-      this.activeIdx = this.focusFirst ? (this.activeIdx + 1) % this.resultsFlattened.length : -1;
+      this.activeIdx = this.focusFirst
+        ? (this.activeIdx + 1) % this.resultsFlattened.length
+        : -1;
     } else {
       this.activeIdx++;
     }
@@ -89,5 +116,4 @@ export class SearchResultsComponent implements OnChanges {
       this.activeIdx--;
     }
   }
-
 }
