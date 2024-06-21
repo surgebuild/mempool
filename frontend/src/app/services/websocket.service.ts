@@ -146,9 +146,9 @@ export class WebsocketService {
         this.startOnlineCheck();
       },
       (err: Error) => {
-        console.log(err);
+        console.log(err,'err');
         console.log(`WebSocket error`);
-        this.goOffline();
+        // this.goOffline();
       });
   }
 

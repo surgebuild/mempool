@@ -12,7 +12,7 @@
   "BLOCK_WEIGHT_UNITS": 4000000,
   "MEMPOOL_BLOCKS_AMOUNT": 8,
   "BASE_MODULE": "mempool",
-  "MEMPOOL_WEBSITE_URL": "https://mempool.space",
+  "MEMPOOL_WEBSITE_URL": "https://mempool.signet.surge.dev",
   "LIQUID_WEBSITE_URL": "https://liquid.network",
   "MINING_DASHBOARD": true,
   "AUDIT": false,

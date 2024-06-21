@@ -54,7 +54,7 @@ class Server {
         canonical = "https://bitcoin.gob.sv"
         break;
       default:
-        canonical = "https://mempool.space"
+        canonical = "https://mempool.signet.surge.dev"
     }
     this.canonicalHost = canonical;
 
@@ -368,7 +368,7 @@ class Server {
     <meta property="twitter:title" content="${ogTitle}">
     <meta property="twitter:description" content="${ogDescription}"/>
     <meta property="twitter:image:src" content="${ogImageUrl}"/>
-    <meta property="twitter:domain" content="mempool.space">
+    <meta property="twitter:domain" content="mempool.signet.surge.dev">
   </head>
   <body></body>
 </html>`;

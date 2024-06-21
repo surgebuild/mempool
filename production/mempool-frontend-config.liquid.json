@@ -8,7 +8,7 @@
   "BISQ_ENABLED": true,
   "BISQ_SEPARATE_BACKEND": true,
   "SIGNET_ENABLED": true,
-  "MEMPOOL_WEBSITE_URL": "https://mempool.space",
+  "MEMPOOL_WEBSITE_URL": "https://mempool.signet.surge.dev",
   "LIQUID_WEBSITE_URL": "https://liquid.network",
   "BISQ_WEBSITE_URL": "https://bisq.markets",
   "ITEMS_PER_PAGE": 25,
