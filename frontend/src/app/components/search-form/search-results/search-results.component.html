@@ -225,9 +225,9 @@
       </button>
     </ng-template>
   </ng-template>
-  <!-- <ng-template [ngIf]="results.otherNetworks.length">
-    <div class="card-title danger" i18n="search.other-networks">
-      Network Address
+   <ng-template [ngIf]="results.otherNetworks.length">
+    <div class="card-title" i18n="search.other-networks">
+      Address
     </div>
     <ng-template
       ngFor
@@ -259,18 +259,13 @@
             }
           "
         ></ng-container
-        >&nbsp;<b
-          >({{
-            otherNetwork.network.charAt(0).toUpperCase() +
-              otherNetwork.network.slice(1)
-          }})</b
         >
       </button>
     </ng-template>
-  </ng-template> -->
+  </ng-template>
   <ng-template [ngIf]="results.address && results.publicKey">
     <div class="card-title" i18n="search.bitcoin-address">
-      {{ networkName }} Address
+     Address
     </div>
     <button
       (click)="clickAddress(0)"

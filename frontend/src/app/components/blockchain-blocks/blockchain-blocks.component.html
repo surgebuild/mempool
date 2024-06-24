@@ -59,11 +59,11 @@
               <app-time kind="since" [time]="block.timestamp" [fastRender]="true" [precision]="1" minUnit="minute"></app-time></div>
           </ng-container>
         </div>
-        <div class="animated" [class]="markHeight === block.height ? 'hide' : 'show'" *ngIf="block.extras?.pool != undefined && showPools">
+        <!-- <div class="animated" [class]="markHeight === block.height ? 'hide' : 'show'" *ngIf="block.extras?.pool != undefined && showPools">
           <a [attr.data-cy]="'bitcoin-block-' + offset + '-index-' + i + '-pool'" class="badge badge-primary"
             [routerLink]="[('/mining/pool/' + block.extras.pool.slug) | relativeUrl]">
             {{ block.extras.pool.name}}</a>
-        </div>
+        </div> -->
       </div>
     </ng-container>
     <ng-template #placeholderBlock>
@@ -71,7 +71,7 @@
         <div [attr.data-cy]="'bitcoin-block-' + offset + '-index-' + i"
           class="text-center bitcoin-block mined-block placeholder-block blockchain-blocks-{{ i }}"
           id="bitcoin-block-{{ block.height }}" [ngStyle]="blockStyles[i]">
- 
+
         </div>
       </ng-container>
     </ng-template>
