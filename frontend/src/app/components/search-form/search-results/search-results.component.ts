@@ -94,7 +94,23 @@ export class SearchResultsComponent implements OnChanges {
   clickAddress(addressId: number) {
     const addressOrId = this.resultsFlattened[addressId]; // Assuming this is the address or ID you want to navigate to
 
-    this.router.navigateByUrl(`/address/${addressOrId}`); // Replace '/your-route/' with your actual route
+   // this.router.navigateByUrl(`/address/${addressOrId}`); // Replace '/your-route/' with your actual route
+
+    if (typeof addressOrId === 'string') {
+      // If it's a string, navigate using the string value
+      this.router.navigateByUrl(`/address/${addressOrId}`);
+    } else if (typeof addressOrId === 'object' && addressOrId !== null) {
+      // If it's an object, navigate using a property of the object (e.g., address)
+      // Replace 'addressProperty' with the actual property name of the address
+      const address = addressOrId.address;
+      if (typeof address === 'string') {
+        this.router.navigateByUrl(`/address/${address}`);
+      } else {
+        console.error('The address property is not a string');
+      }
+    } else {
+      console.error('addressOrId is neither a string nor a non-null object');
+    }
   }
 
   next() {

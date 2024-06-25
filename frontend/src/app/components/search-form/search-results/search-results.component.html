@@ -226,47 +226,7 @@
     </ng-template>
   </ng-template>
    <ng-template [ngIf]="results.otherNetworks.length">
-    <div class="card-title" i18n="search.other-networks">
-      Address
-    </div>
-    <ng-template
-      ngFor
-      [ngForOf]="results.otherNetworks"
-      let-otherNetwork
-      let-i="index"
-    >
-      <button
-        (click)="
-          clickAddress(
-            results.hashQuickMatch +
-              results.addresses.length +
-              results.pools.length +
-              results.nodes.length +
-              results.channels.length +
-              i
-          )
-        "
-        type="button"
-        role="option"
-        class="dropdown-item"
-      >
-        <ng-container
-          *ngTemplateOutlet="
-            goTo;
-            context: {
-              $implicit:
-                otherNetwork.address | shortenString: (isMobile ? 12 : 20)
-            }
-          "
-        ></ng-container
-        >
-      </button>
-    </ng-template>
-  </ng-template>
-  <ng-template [ngIf]="results.address && results.publicKey">
-    <div class="card-title" i18n="search.bitcoin-address">
-     Address
-    </div>
+    <div class="card-title" i18n="search.bitcoin-address">Address</div>
     <button
       (click)="clickAddress(0)"
       [class.active]="0 === activeIdx"
