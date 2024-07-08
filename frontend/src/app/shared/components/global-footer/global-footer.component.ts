@@ -19,7 +19,7 @@ import { EnterpriseService } from '../../../services/enterprise.service';
 export class GlobalFooterComponent implements OnInit, OnDestroy {
   private destroy$: Subject<any> = new Subject<any>();
   env: Env;
-  officialMempoolSpace = this.stateService.env.OFFICIAL_MEMPOOL_SPACE;
+  //officialMempoolSpace = this.stateService.env.OFFICIAL_MEMPOOL_SPACE;
   mempoolSpaceBuild = window['isMempoolSpaceBuild'];
   backendInfo$: Observable<IBackendInfo>;
   servicesBackendInfo$: Observable<IBackendInfo>;
@@ -42,15 +42,15 @@ export class GlobalFooterComponent implements OnInit, OnDestroy {
     private navigationService: NavigationService,
     private enterpriseService: EnterpriseService,
     @Inject(LOCALE_ID) public locale: string,
-    private storageService: StorageService,
-    private route: ActivatedRoute,
-    private cd: ChangeDetectorRef,
-    private websocketService: WebsocketService,
-    private router: Router
-  ) {}
+    // private storageService: StorageService,
+    // private route: ActivatedRoute,
+    // private cd: ChangeDetectorRef,
+    // private websocketService: WebsocketService,
+    // private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.isServicesPage = this.router.url.includes('/services/');
+    // this.isServicesPage = this.router.url.includes('/services/');
 
     this.env = this.stateService.env;
     this.backendInfo$ = this.stateService.backendInfo$;
@@ -59,9 +59,9 @@ export class GlobalFooterComponent implements OnInit, OnDestroy {
     this.navigationService.subnetPaths.subscribe((paths) => {
       this.networkPaths = paths;
     });
-    this.enterpriseInfo$ = this.enterpriseService.info$.subscribe(info => {
-      this.enterpriseInfo = info;
-    });
+    // this.enterpriseInfo$ = this.enterpriseService.info$.subscribe(info => {
+    //   this.enterpriseInfo = info;
+    // });
     this.network$ = merge(of(''), this.stateService.networkChanged$).pipe(
       tap((network: string) => {
         return network;
@@ -71,10 +71,10 @@ export class GlobalFooterComponent implements OnInit, OnDestroy {
       this.currentNetwork = network;
     });
 
-    this.urlSubscription = this.route.url.subscribe((url) => {
-      this.loggedIn = this.storageService.getAuth() !== null;
-      this.cd.markForCheck();
-    })
+    // this.urlSubscription = this.route.url.subscribe((url) => {
+    //   this.loggedIn = this.storageService.getAuth() !== null;
+    //   this.cd.markForCheck();
+    // });
   }
 
   ngOnDestroy(): void {
@@ -88,10 +88,10 @@ export class GlobalFooterComponent implements OnInit, OnDestroy {
 
   networkLink(network) {
     const thisNetwork = network || 'mainnet';
-    if( network === '' || network === 'mainnet' || network === 'testnet' || network === 'testnet4' || network === 'signet' ) {
+    if (network === '' || network === 'mainnet' || network === 'testnet' || network === 'testnet4' || network === 'signet') {
       return (this.env.BASE_MODULE === 'mempool' ? '' : this.env.MEMPOOL_WEBSITE_URL + this.urlLanguage) + this.networkPaths[thisNetwork] || '/';
     }
-    if( network === 'liquid' || network === 'liquidtestnet' ) {
+    if (network === 'liquid' || network === 'liquidtestnet') {
       return (this.env.BASE_MODULE === 'liquid' ? '' : this.env.LIQUID_WEBSITE_URL + this.urlLanguage) + this.networkPaths[thisNetwork] || '/';
     }
   }

@@ -1,4 +1,5 @@
 footer {
+  padding-bottom: 30px;
   background-color: var(--bg);
   margin-top: 30px;
   &.services {
@@ -9,7 +10,7 @@ footer {
 }
 
 footer a {
-  color: rgba(255, 255, 255, 0.4);
+  // color: rgba(255, 255, 255, 0.4);
 }
 
 footer p {
@@ -17,7 +18,7 @@ footer p {
 }
 
 footer .row.main {
-  padding: 40px 0 24px 0;
+  padding: 20px 0 10px 0;
   max-width: 1140px;
   margin: 0 auto;
   &.services {
@@ -26,6 +27,12 @@ footer .row.main {
       padding-right: 50px;
     }
   }
+}
+
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer .row.main .branding > p {
@@ -45,13 +52,15 @@ footer .row.main .branding .cta {
   margin: 25px auto 25px auto;
 }
 
-footer .link-tree .links:nth-child(1), footer .link-tree .links:nth-child(4) {
+footer .link-tree .links:nth-child(1),
+footer .link-tree .links:nth-child(4) {
   padding-left: 0;
   padding-right: 0;
 }
 
-footer .link-tree .links p {
-  padding-right: 5px;
+footer .link-tree .links a {
+  color: var(--info);
+  font-size: 1rem;
 }
 
 footer .row.main .links > div:first-child {
@@ -77,11 +86,12 @@ footer .selector {
 }
 
 footer .row.link-tree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
   max-width: 1140px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   &.services {
     @media (min-width: 1201px) {
       padding-left: 65px;
@@ -95,9 +105,9 @@ footer .row.social-links {
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
-  margin: 0 auto; 
+  margin: 0 auto;
 
-  @media (max-width: 450px){
+  @media (max-width: 450px) {
     width: 250px;
   }
 }
@@ -227,7 +237,6 @@ footer .nowrap {
 }
 
 @media (max-width: 1200px) {
-
   .main-logo {
     width: 200px;
   }
@@ -245,11 +254,9 @@ footer .nowrap {
   footer .row.social-links svg {
     width: 18px;
   }
-
 }
 
 @media (max-width: 950px) {
-
   .main-logo {
     width: 220px;
   }
@@ -288,7 +295,6 @@ footer .nowrap {
 }
 
 @media (max-width: 1147px) {
-
   .services.main-logo {
     width: 220px;
   }
