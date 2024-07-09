@@ -51,7 +51,7 @@
           @if (enterpriseInfo?.header_img) {
             <img [src]="enterpriseInfo?.header_img" alt="enterpriseInfo.title" height="36px">
           } @else {
-            <app-svg-images *ngIf="!officialMempoolSpace" name="mempoolSpace" viewBox="0 0 500 126" class="mempool-logo" [ngStyle]="{'opacity': connectionState.val === 2 ? 1 : 0.5 }"></app-svg-images>
+            <app-svg-images *ngIf="!officialMempoolSpace" name="mempoolSpace" viewBox="0 0 700 200" class="mempool-logo" [ngStyle]="{'opacity': connectionState.val === 2 ? 1 : 0.5 }"></app-svg-images>
             <app-svg-images *ngIf="officialMempoolSpace" name="officialMempoolSpace" viewBox="0 0 500 126"></app-svg-images>
           }
             <div class="connection-badge">
