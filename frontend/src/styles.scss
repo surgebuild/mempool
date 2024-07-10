@@ -199,21 +199,21 @@ main {
 
 .btn-purple:not(:disabled):not(.disabled):active, .btn-purple:not(:disabled):not(.disabled).active, .show > .btn-purple.dropdown-toggle {
   color: #fff;
-  background-color: var(--search-button);
-  border-color: var(--search-button-border);
+  background-color: #cd3a18;
+  border-color: #cd3a18;
 }
 
 .btn-purple:focus, .btn-purple.focus {
   color: #fff;
-  background-color: var(--search-button-focus);
-  border-color: var(--search-button);
-  box-shadow: 0 0 0 0.2rem var(--search-button-shadow);
+  background-color: #cd3a18;
+  border-color: #cd3a18;
+  // box-shadow: 0 0 0 0.2rem #cd3a18;
 }
 
 .btn-purple:hover {
   color: #fff;
-  background-color: var(--search-button-focus);
-  border-color: var(--search-button);
+  background-color: #cd3a18;
+  border-color: #cd3a18;
 }
 
 .form-control.form-control-secondary {
