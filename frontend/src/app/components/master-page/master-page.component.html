@@ -420,16 +420,7 @@
               ></fa-icon
             ></a>
           </li>
-          <li
-            class="nav-item"
-            routerLinkActive="active"
-            id="btn-faucet"
-            *ngIf="
-              stateService.isMempoolSpaceBuild &&
-              stateService.env.OFFICIAL_MEMPOOL_SPACE &&
-              stateService.network === 'testnet4'
-            "
-          >
+          <li class="nav-item" routerLinkActive="active" id="btn-faucet">
             <a
               class="nav-link"
               [routerLink]="['/faucet' | relativeUrl]"
